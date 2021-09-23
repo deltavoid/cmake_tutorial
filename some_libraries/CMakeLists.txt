@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 project(SomeLibraries VERSION 1.0 LANGUAGES CXX)
 
+
+message("CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
+
 add_library(SomeLibraryA src/some_library_a.cpp)
 
 target_include_directories(SomeLibraryA
@@ -16,6 +19,10 @@ target_include_directories(SomeLibraryB
     $<INSTALL_INTERFACE:include>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
+
+
+
+
 
 
 install(TARGETS SomeLibraryA SomeLibraryB
